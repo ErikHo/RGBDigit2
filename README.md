@@ -38,7 +38,7 @@ Clear all digits.
 
 #####```void setDigit(char character, int digit, byte red, byte green, byte blue);```
 
-#####```void setDigit(char character, int digit, uint32_c);```
+#####```void setDigit(char character, int digit, uint32_c);```  
 Show *character* on *digit* in color rgb(*red*,*green*,*blue*). Valid characters are letters (case insensitive) from *a* to *z*, the dot (*.*), dash (*-*), underscore (*_*), brackets ( *( ) { } [ ]* ) and space . Use an asterisk (*) for the degree sign. Character values 0..15 are shown as (hexa) decimal characters 0..9; A..F.
 
 #####```void clearDigit(int digit);```
