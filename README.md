@@ -37,13 +37,15 @@ Initialises the RGBDigit.
 Clear all digits.
 
 #####```void setDigit(char character, int digit, byte red, byte green, byte blue);```
+
 #####```void setDigit(char character, int digit, uint32_c);```
 Show *character* on *digit* in color rgb(*red*,*green*,*blue*). Valid characters are letters (case insensitive) from *a* to *z*, the dot (*.*), dash (*-*), underscore (*_*), brackets ( *( ) { } [ ]* ) and space . Use an asterisk (*) for the degree sign. Character values 0..15 are shown as (hexa) decimal characters 0..9; A..F.
 
 #####```void clearDigit(int digit);```
 Clear *digit*.
 
-#####```void showDot(int digit, byte red, byte green, byte blue```   
+#####```void showDot(int digit, byte red, byte green, byte blue```
+
 #####```void showDot(int digit, uint32_t c)```
 Show dot on *digit* in color rgb(*red*,*green*,*blue*). 
 
@@ -51,6 +53,7 @@ Show dot on *digit* in color rgb(*red*,*green*,*blue*).
 Clear dot on *digit*. .
 
 #####```void segmentOn(int digit, byte segment, byte red, byte green, byte blue);```
+
 #####```void segmentOn(int digit, byte segment, uint32_t c);```
 Show *segment* on *digit* in color rgb(*red*,*green*,*blue*). 
 
@@ -61,10 +64,12 @@ Clear *segment* on *digit*.
 Returns True if *segment* on *digit* is on. Otherwise, returns False.
 
 #####```void setColor(byte red, byte green, byte blue);```
+
 #####```void setColor(uint32_t c);```
 Set the color of all digits to color rgb(*red*,*green*,*blue*), digital points are not affected.
 
 #####```void setColor(int digit, byte red, byte green, byte blue);```
+
 #####```void setColor(int digit, uint32_t c);```
 Set the color of *digit* to color rgb(*red*,*green*,*blue*), digital points are not affected.
 
