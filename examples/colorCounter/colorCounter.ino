@@ -102,9 +102,9 @@ uint32_t interpColor(int x, int xMin, int xMax, uint32_t colorMap[], int colorMa
 }
 
 // write a character string to the display
-void writeText(char t[], int start, int length, uint32_t c){
+void writeText(char txt[], int start, int length, uint32_t c){
   for(int i =0; i < length; i++){
-    myDigits.setDigit(t[start + i], i, c);
+    myDigits.setDigit(txt[start + i], i, c);
   }
 }
 

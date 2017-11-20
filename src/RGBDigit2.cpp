@@ -17,7 +17,7 @@
     51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#include "RGBDigit2.h"  
+#include "RGBDigit2.h"
 
 RGBDigit::RGBDigit(int nDigits, int pin)
   : Adafruit_NeoPixel(8 * nDigits, pin, NEO_GRB + NEO_KHZ800){
@@ -37,20 +37,61 @@ void RGBDigit::setDigit(char x, int digit, uint32_t c){
 }
 
 void RGBDigit::setDigit(char x, int digit, byte red, byte green, byte blue){
+  static const byte alphaNum[37] PROGMEM = {
+  // .GFEDCBA
+    B00111111,     //0      This character bitmap is a direct translation
+    B00000110,     //1      from Cr�tzen 2015
+    B01011011,     //2
+    B01001111,     //3      The rightmost bit controls the A segment and the
+    B01100110,     //4      leftmost bit controls the decimal point
+    B01101101,     //5
+    B01111101,     //6
+    B00000111,     //7
+    B01111111,     //8
+    B01101111,     //9
+    B01110111,     //a
+    B01111100,     //b
+    B00111001,     //c
+    B01011110,     //d
+    B01111001,     //e
+    B01110001,     //f
+    B01101111,     //g
+    B01110100,     //h
+    B00000110,     //i
+    B00001110,     //j
+    B01110110,     //k
+    B00111000,     //l
+    B11010100,     //m
+    B01010100,     //n
+    B01011100,     //o
+    B01110011,     //p
+    B01100111,     //q
+    B01010000,     //r
+    B01101101,     //s
+    B01111000,     //t
+    B00111110,     //u
+    B00011100,     //v
+    B10011100,     //w
+    B11110110,     //x
+    B01101110,     //y
+    B01011011      //z
+  };
+
+
   x = tolower(x);                     // convert to lower case
   byte pattern;
   if((x >= 'a') && (x <='z')){        // get bit pattern for a letter
-    pattern = alphaNum[x-int('a')+10];
+    pattern = pgm_read_byte_near(alphaNum + x-int('a') + 10);
   }
   else if((x >= '0') && (x <='9')){   // get bit pattern for a digit
-    pattern = alphaNum[x-int('0')];
+    pattern = pgm_read_byte_near(alphaNum + x-int('0'));
   }
-  else if((x >= 0) && (x <=0x0F)){    // direct selection of pattern for 
-    pattern = alphaNum[x];            // a (hex) number
+  else if((x >= 0) && (x <=0x0F)){    // direct selection of pattern for
+    pattern = pgm_read_byte_near(alphaNum + x);      // a (hex) number
   }
-  else{                               // special characters        
+  else{                               // special characters
     switch(x){
-    case '.': 
+    case '.':
       pattern= B10000000;  //space, '.'
     break;
     case ' ':
@@ -60,7 +101,7 @@ void RGBDigit::setDigit(char x, int digit, byte red, byte green, byte blue){
       pattern = B01000000;  //minus,'-'
     break;
     case '_':
-      pattern = B00001000;  //underscore,'_' 
+      pattern = B00001000;  //underscore,'_'
     break;
     case '{':
     case '[':
@@ -166,4 +207,3 @@ void RGBDigit::setColor(int digit, uint32_t c){
   }
   show();
 }
-
