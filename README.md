@@ -24,36 +24,30 @@ The *segment* parameters can be values from 0 to 7, every number corresponding t
     4     2
        3      7
 
-#####```RGBDigit(int nDigits, int pin = 12);```
-
+#####```RGBDigit(int nDigits, int pin = 12);```  
 The constructor of the RGBDigit class. *nDigits* is the number of digits. *pin* is the pin number, which defaults to pin 12 if this parameter is omitted.
 
-#####```void begin();```
-
+#####```void begin();```  
 Initialises the RGBDigit.
 
-#####```void clearAll();```
-
+#####```void clearAll();```  
 Clear all digits.
 
-#####```void setDigit(char character, int digit, byte red, byte green, byte blue);```
-
+#####```void setDigit(char character, int digit, byte red, byte green, byte blue);```  
 #####```void setDigit(char character, int digit, uint32_c);```  
 Show *character* on *digit* in color rgb(*red*,*green*,*blue*). Valid characters are letters (case insensitive) from *a* to *z*, the dot (*.*), dash (*-*), underscore (*_*), brackets ( *( ) { } [ ]* ) and space . Use an asterisk (*) for the degree sign. Character values 0..15 are shown as (hexa) decimal characters 0..9; A..F.
 
 #####```void clearDigit(int digit);```  
 Clear *digit*.
 
-#####```void showDot(int digit, byte red, byte green, byte blue```
-
+#####```void showDot(int digit, byte red, byte green, byte blue```  
 #####```void showDot(int digit, uint32_t c)```  
 Show dot on *digit* in color rgb(*red*,*green*,*blue*). 
 
 #####```void clearDot(int digit);```  
 Clear dot on *digit*. .
 
-#####```void segmentOn(int digit, byte segment, byte red, byte green, byte blue);```
-
+#####```void segmentOn(int digit, byte segment, byte red, byte green, byte blue);```  
 #####```void segmentOn(int digit, byte segment, uint32_t c);```  
 Show *segment* on *digit* in color rgb(*red*,*green*,*blue*). 
 
@@ -63,13 +57,11 @@ Clear *segment* on *digit*.
 #####```bool isSegmentOn(int digit, byte segment);```  
 Returns True if *segment* on *digit* is on. Otherwise, returns False.
 
-#####```void setColor(byte red, byte green, byte blue);```
-
+#####```void setColor(byte red, byte green, byte blue);```  
 #####```void setColor(uint32_t c);```  
 Set the color of all digits to color rgb(*red*,*green*,*blue*), digital points are not affected.
 
-#####```void setColor(int digit, byte red, byte green, byte blue);```
-
+#####```void setColor(int digit, byte red, byte green, byte blue);```  
 #####```void setColor(int digit, uint32_t c);```  
 Set the color of *digit* to color rgb(*red*,*green*,*blue*), digital points are not affected.
 
